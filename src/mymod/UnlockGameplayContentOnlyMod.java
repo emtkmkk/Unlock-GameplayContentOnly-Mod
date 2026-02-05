@@ -28,10 +28,17 @@ public class UnlockGameplayContentOnlyMod implements PostInitializeSubscriber {
 
 	@Override
 	public void receivePostInitialize() {
+		unlockCharacters();
 		unlockFinalAct();
 		unlockDaily();
 		unlockRelics();
 		unlockCards();
+	}
+
+	public static void unlockCharacters() {
+		UnlockTracker.hardUnlockOverride("The Silent");
+		UnlockTracker.hardUnlockOverride("Defect");
+		UnlockTracker.hardUnlockOverride("Watcher");
 	}
 	
 	public static void unlockFinalAct() {
