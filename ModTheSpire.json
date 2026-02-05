@@ -1,9 +1,9 @@
 {
-	"modid": "UnlockEverythingMod",
-	"name": "Unlock Everything Mod",
-	"author_list": ["彼君不触"],
-	"description": "Unlocks Ascension 20 for original characters. Unlocks Daily & Custom. Unlocks all relics & cards in STS (excludes mod). Unlocks permission to be able to enter 4th Act. Unlocks beta art & The Ending in custom run. This Mod is almost One-Time-Affective, however usually players need to run game with this mod twice. If you are running the mod with a brand new save file, restart is required to unlock ascension for Ironclad.",
-	"version": "5.0.0",
+	"modid": "UnlockGameplayContentOnlyMod",
+	"name": "Unlock GameplayContentOnly Mod",
+	"author_list": ["彼君不触", "emtk"],
+	"description": "Fork of UnlockEverythingMod. Unlocks gameplay-relevant content only: relics, cards, Daily/Custom access, and permission to enter the 4th Act. Does not unlock Ascension progress or The Ending/Beta Art achievements.",
+	"version": "5.1.0",
 	"sts_version": "01-27-2020",
 	"dependencies": ["basemod"]
 }
