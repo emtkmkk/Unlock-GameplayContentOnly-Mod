@@ -2,12 +2,10 @@ package mymod;
 
 import java.util.ArrayList;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.Prefs;
 import com.megacrit.cardcrawl.helpers.SaveHelper;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import basemod.BaseMod;
 import basemod.interfaces.PostInitializeSubscriber;
@@ -61,34 +59,19 @@ public class UnlockGameplayContentOnlyMod implements PostInitializeSubscriber {
 	}
 	
 	public static void unlockCards() {
-		CardLibrary.initialize();
-		for (String id : CardLibrary.CARD_IDS) {
+		for (String id : new ArrayList<String>(UnlockTracker.lockedCards)) {
 			UnlockTracker.unlockPref.putInteger(id, 2);
 			UnlockTracker.lockedCards.remove(id);
-			AbstractCard c = com.megacrit.cardcrawl.helpers.CardLibrary.getCard(id);
-			if (c != null && !c.isSeen) {
-				c.isSeen = true;
-				c.unlock();
-				UnlockTracker.seenPref.putInteger(id, 1);
-			}
 		}
-		UnlockTracker.seenPref.flush();
 		UnlockTracker.unlockPref.flush();
 	}
 	
 	public static void unlockRelics() {
-		RelicLibrary.initialize();
-		for (String id : RelicLibrary.RELIC_IDS) {
+		for (String id : new ArrayList<String>(UnlockTracker.lockedRelics)) {
 			UnlockTracker.unlockPref.putInteger(id, 2);
 			UnlockTracker.lockedRelics.remove(id);
-			AbstractRelic r = com.megacrit.cardcrawl.helpers.RelicLibrary.getRelic(id);
-			if (r != null && !r.isSeen) {
-				r.isSeen = true;
-				UnlockTracker.relicSeenPref.putInteger(id, 1);
-			}
 		}
 		UnlockTracker.unlockPref.flush();
-		UnlockTracker.relicSeenPref.flush();
 	}
 	
 
